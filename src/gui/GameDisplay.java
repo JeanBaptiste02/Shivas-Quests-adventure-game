@@ -20,7 +20,7 @@ import motor.process.MobileElementManager;
  */
 public class GameDisplay extends JPanel {
 	
-	private boolean debugGrid = true; // permet de montrer la grille pour débuger facilement
+	private boolean debugGrid = false; // permet de montrer la grille pour débuger facilement
 	
 	private Map map;
 	private MobileElementManager manager;

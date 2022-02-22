@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import java.awt.Container;
 
@@ -20,7 +21,7 @@ import java.awt.Font;
 
 
 @SuppressWarnings("serial")
-public class WelcomePage extends JFrame implements Runnable{
+public class WelcomePage extends JFrame{
 	
 	private JFrame mafenetre;
 	private Container myfem;
@@ -28,10 +29,8 @@ public class WelcomePage extends JFrame implements Runnable{
 	private JLabel mainTitle;
 	private JButton start, achieve, help;
 		
-	//private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
+	private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
 	
-
-
 	
 	public WelcomePage(String title) {
 		super(title);
@@ -43,8 +42,9 @@ public class WelcomePage extends JFrame implements Runnable{
 		mafenetre = new JFrame();
 		myfem = mafenetre.getContentPane();
 		mafenetre.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		mafenetre.setSize(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
+		mafenetre.setSize(preferredSize);
 		mafenetre.setVisible(true);
+		mafenetre.setLocationRelativeTo(null);
 		mafenetre.setResizable(false);
 		myfem.setLayout(new BoxLayout(mafenetre.getContentPane(), BoxLayout.X_AXIS));
 
@@ -86,23 +86,6 @@ public class WelcomePage extends JFrame implements Runnable{
 		
 	}
 	
-	/*
-	 * makes the programm run 
-	 */
-	@Override
-	public void run() {
-		while (true) {
-			try {
-				
-				Thread.sleep(GameConfiguration.GAME_SPEED);
-			} catch (InterruptedException e) {
-				System.out.println(e.getMessage());
-			}
-			mafenetre.repaint();
-		}
-		
-	}
-	
 	
 /*
  * action Listeners
@@ -113,6 +96,8 @@ private class startGame implements ActionListener {
     		
     		if(e.getSource()==start) {
     			
+    			mafenetre.dispose();
+    			mafenetre.setVisible(false);
     			MainGUI gameMainGUI = new MainGUI("Shiva's Quests");
 
     			Thread gameThread = new Thread(gameMainGUI);
