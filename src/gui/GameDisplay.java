@@ -5,8 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
-
 import configuration.GameConfiguration;
+
 import motor.map.Map;
 import motor.mobile.Joueur;
 import motor.process.MobileElementManager;
@@ -18,9 +18,10 @@ import motor.process.MobileElementManager;
  * @author D.JB E.SRI Z.VIC
  *
  */
+@SuppressWarnings("serial")
 public class GameDisplay extends JPanel {
 	
-	private boolean debugGrid = false; // permet de montrer la grille pour débuger facilement
+	private boolean debugGrid = true; // permet de montrer la grille pour débuger facilement
 	
 	private Map map;
 	private MobileElementManager manager;
@@ -43,6 +44,7 @@ public class GameDisplay extends JPanel {
 		Graphics2D g2 = (Graphics2D)g; // permet d'avoir plus de fonctionalité graphique
 		
 		
+		paintStrategy.paint(g2, map);
 		Joueur player = manager.getPlayer();
 		paintStrategy.paint(player,g2);
 		
@@ -51,7 +53,7 @@ public class GameDisplay extends JPanel {
 	private void drawDebugGrid(Graphics g) {
 		int width = getWidth();
 		int height = getHeight();
-		g.setColor(Color.GRAY);
+		g.setColor(Color.GREEN);
 
 		for (int i = GameConfiguration.BLOCK_SIZE; i <= width; i += GameConfiguration.BLOCK_SIZE) {
 			g.drawLine(i, 1, i, height);
@@ -64,6 +66,4 @@ public class GameDisplay extends JPanel {
 	
 
 	
-	
-
 }

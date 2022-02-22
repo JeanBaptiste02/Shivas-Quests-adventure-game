@@ -7,6 +7,7 @@ import java.awt.Image;
 import configuration.GameConfiguration;
 import motor.map.Block;
 import motor.map.BlockManager;
+import motor.map.Map;
 import motor.mobile.Joueur;
 
 
@@ -17,15 +18,24 @@ import motor.mobile.Joueur;
  */
 public class PaintStrategy {
 	
+	public void paint(Graphics2D g2, Map map) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block[][] blocks = map.getBlocks();
+
+		for (int lineIndex = 0; lineIndex < map.getLineCount(); lineIndex++) {
+			for (int columnIndex = 0; columnIndex < map.getColumnCount(); columnIndex++) {
+				Block block = blocks[lineIndex][columnIndex];
+				
+				g2.fillRect(block.getColumn()*blockSize, block.getLine()*blockSize, blockSize, blockSize);
+			}
+		}
+	}
 	public void paint(Joueur p, Graphics2D graphics) {
 		Block position = p.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 
 		int y = position.getLine();
 		int x = position.getColumn();
-		
-//		graphics.setColor(Color.black);
-//		graphics.fillRect(x * blockSize,y * blockSize, blockSize, blockSize);
 		
 		Image up1, up2, down1, down2, left1, left2, right1, right2;
 		
