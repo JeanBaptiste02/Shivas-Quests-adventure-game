@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -14,8 +13,7 @@ import java.awt.Color;
 import java.awt.Container;
 
 import configuration.GameConfiguration;
-import motor.map.Map;
-import motor.process.MobileElementManager;
+
 
 import java.awt.Font;
 
@@ -29,10 +27,8 @@ public class WelcomePage extends JFrame implements Runnable{
 	private JPanel rightSidePan;
 	private JLabel mainTitle;
 	private JButton start, achieve, help;
-	
-	private Font titleStyle;
-	
-	private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
+		
+	//private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
 	
 
 
@@ -52,40 +48,47 @@ public class WelcomePage extends JFrame implements Runnable{
 		mafenetre.setResizable(false);
 		myfem.setLayout(new BoxLayout(mafenetre.getContentPane(), BoxLayout.X_AXIS));
 
-		
+	
+		/*title of the page*/
 		mainTitle = new JLabel("Shiva's Quests");
-		mainTitle.setAlignmentY(0.0f);
+		mainTitle.setAlignmentY(0.0f); //using position
 		mainTitle.setFont(new Font("Stencil", Font.BOLD, 35));
 		mainTitle.setForeground(Color.RED);
-		myfem.add(mainTitle);
+		myfem.add(mainTitle); //adding the title to the container
 		
+		
+		/*creating a panel on the right side of the page*/
 		rightSidePan = new JPanel();
 		rightSidePan.setBackground(Color.GRAY);
-		myfem.add(rightSidePan);
+		myfem.add(rightSidePan); //adding the panel to the container
 		rightSidePan.setLayout(null);
 		
+		//start button
 		start = new JButton("Start");
 		start.setBackground(Color.BLUE);
 		start.setForeground(Color.RED);
-		start.setBounds(300, 161, 120, 31);
-		rightSidePan.add(start);
-		start.addActionListener(new startGame());
+		start.setBounds(300, 161, 120, 31); //setting position and size
+		rightSidePan.add(start); //adding the button to the panel
+		start.addActionListener(new startGame()); //adding an actionListener to the button
 		
 		achieve = new JButton("Achievements");
 		achieve.setBackground(Color.BLUE);
 		achieve.setForeground(Color.RED);
-		achieve.setBounds(300, 218, 120, 31);
-		rightSidePan.add(achieve);
+		achieve.setBounds(300, 218, 120, 31);//setting position and size
+		rightSidePan.add(achieve);//adding the button to the panel
 		
 		help = new JButton("Help");
 		help.setBackground(Color.BLUE);
 		help.setForeground(Color.RED);
-		help.setBounds(300, 276, 120, 31);
-		rightSidePan.add(help);
+		help.setBounds(300, 276, 120, 31);//setting position and size
+		rightSidePan.add(help);//adding the button to the panel
 		
 		
 	}
 	
+	/*
+	 * makes the programm run 
+	 */
 	@Override
 	public void run() {
 		while (true) {
@@ -100,6 +103,10 @@ public class WelcomePage extends JFrame implements Runnable{
 		
 	}
 	
+	
+/*
+ * action Listeners
+ */
 private class startGame implements ActionListener {
     	
     	public void actionPerformed(ActionEvent e) {
