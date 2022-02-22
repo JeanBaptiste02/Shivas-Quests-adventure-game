@@ -41,6 +41,7 @@ public class WelcomePage extends JFrame{
 		
 		mafenetre = new JFrame();
 		myfem = mafenetre.getContentPane();
+		myfem.setBackground(Color.BLACK);
 		mafenetre.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		mafenetre.setSize(preferredSize);
 		mafenetre.setVisible(true);
@@ -59,7 +60,7 @@ public class WelcomePage extends JFrame{
 		
 		/*creating a panel on the right side of the page*/
 		rightSidePan = new JPanel();
-		rightSidePan.setBackground(Color.GRAY);
+		rightSidePan.setBackground(Color.BLACK);
 		myfem.add(rightSidePan); //adding the panel to the container
 		rightSidePan.setLayout(null);
 		
