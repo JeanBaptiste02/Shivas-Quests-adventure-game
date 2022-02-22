@@ -21,7 +21,7 @@ import motor.process.MobileElementManager;
 @SuppressWarnings("serial")
 public class GameDisplay extends JPanel {
 	
-	private boolean debugGrid = true; // permet de montrer la grille pour débuger facilement
+	private boolean debugGrid = false; // permet de montrer la grille pour débuger facilement
 	
 	private Map map;
 	private MobileElementManager manager;
@@ -37,23 +37,22 @@ public class GameDisplay extends JPanel {
 	public void paintComponent(Graphics g) { // comme si on avait un crayon pour dessiner
 		super.paintComponent(g);
 		
-		if (debugGrid) {
-			drawDebugGrid(g);
-		}
-		
 		Graphics2D g2 = (Graphics2D)g; // permet d'avoir plus de fonctionalité graphique
-		
 		
 		paintStrategy.paint(g2, map);
 		Joueur player = manager.getPlayer();
-		paintStrategy.paint(player,g2);
+		paintStrategy.paint(player, g2);
+		
+		if (debugGrid) {
+			drawDebugGrid(g);
+		}
 		
 	}
 	
 	private void drawDebugGrid(Graphics g) {
 		int width = getWidth();
 		int height = getHeight();
-		g.setColor(Color.GREEN);
+		g.setColor(Color.BLACK);
 
 		for (int i = GameConfiguration.BLOCK_SIZE; i <= width; i += GameConfiguration.BLOCK_SIZE) {
 			g.drawLine(i, 1, i, height);

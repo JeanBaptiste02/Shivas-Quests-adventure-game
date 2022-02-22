@@ -3,7 +3,7 @@ package gui;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
-
+import java.awt.Color;
 import configuration.GameConfiguration;
 import motor.map.Block;
 import motor.map.BlockManager;
@@ -26,7 +26,9 @@ public class PaintStrategy {
 			for (int columnIndex = 0; columnIndex < map.getColumnCount(); columnIndex++) {
 				Block block = blocks[lineIndex][columnIndex];
 				
-				g2.fillRect(block.getColumn()*blockSize, block.getLine()*blockSize, blockSize, blockSize);
+				//g2.setColor(Color.GREEN);
+				g2.drawImage(BlockManager.readImage("src/images/herbe.png"), block.getColumn() * blockSize, block.getLine() * blockSize, GameConfiguration.BLOCK_SIZE, GameConfiguration.BLOCK_SIZE, null);
+				//g2.fillRect(block.getColumn()*blockSize, block.getLine()*blockSize, blockSize, blockSize);
 			}
 		}
 	}
