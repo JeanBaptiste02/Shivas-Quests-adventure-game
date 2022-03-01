@@ -47,7 +47,7 @@ public class WelcomePage extends JFrame{
 		mafenetre.setVisible(true);
 		mafenetre.setLocationRelativeTo(null);
 		mafenetre.setResizable(false);
-		myfem.setLayout(new BoxLayout(mafenetre.getContentPane(), BoxLayout.X_AXIS));
+		myfem.setLayout(new BoxLayout(myfem, BoxLayout.X_AXIS));
 
 	
 		/*title of the page*/
@@ -83,6 +83,7 @@ public class WelcomePage extends JFrame{
 		help.setForeground(Color.RED);
 		help.setBounds(300, 276, 120, 31);//setting position and size
 		rightSidePan.add(help);//adding the button to the panel
+		help.addActionListener(new HlpGame());
 		
 		
 	}
@@ -107,4 +108,19 @@ private class startGame implements ActionListener {
     		}
     	}
     }
+
+private class HlpGame implements ActionListener{
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==help) {
+			
+			mafenetre.dispose();
+			mafenetre.setVisible(false);
+			HelpPage frame = new HelpPage("Shiva's Quests");
+			frame.setVisible(true);
+
+			
+		}
+	}
+}
 }
