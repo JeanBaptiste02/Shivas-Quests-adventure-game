@@ -1,6 +1,5 @@
 package motor.process;
 
-
 import configuration.GameConfiguration;
 import motor.map.Block;
 import motor.map.Map;
@@ -24,7 +23,7 @@ public class GameBuilder {
 	}
 
 	private static void intializePlayer(Map map, MobileElementManager manager) {
-		Block block = map.getBlock(2, 2);
+		Block block = map.getBlock(3, 3);
 		Joueur player = new Joueur(block);
 		manager.set(player);
 	}

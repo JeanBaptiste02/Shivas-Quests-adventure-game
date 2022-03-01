@@ -2,7 +2,6 @@ package motor.mobile;
 
 import motor.map.Block;
 
-
 /**
  * 
  * @author D.JB E.SRI Z.VIC

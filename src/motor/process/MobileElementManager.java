@@ -1,6 +1,5 @@
 package motor.process;
 
-
 import configuration.GameConfiguration;
 import motor.map.Block;
 import motor.map.Map;

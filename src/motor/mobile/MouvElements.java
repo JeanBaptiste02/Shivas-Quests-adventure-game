@@ -1,6 +1,5 @@
 package motor.mobile;
 
-
 import motor.map.Block;
 
 /**

@@ -11,14 +11,11 @@ import motor.map.Map;
 import motor.process.GameBuilder;
 import motor.process.MobileElementManager;
 
-
-
 /**
  * 
  * @author D.JB E.SRI Z.VIC
  *
  */
-@SuppressWarnings("serial")
 public class MainGUI extends JFrame implements Runnable {
 	
 	private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
