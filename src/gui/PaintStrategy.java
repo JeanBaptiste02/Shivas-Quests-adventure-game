@@ -28,6 +28,7 @@ public class PaintStrategy {
 	    array[0] = BlockManager.readImage("images/blocks/grass.png");
 	    array[1] = BlockManager.readImage("images/blocks/tree.png");
 	    array[2] = BlockManager.readImage("images/blocks/flame.png");
+	    array[3] = BlockManager.readImage("images/blocks/water.png");
 	    
 	    int columnIndex = 0;
 	    int lineIndex = 0;
