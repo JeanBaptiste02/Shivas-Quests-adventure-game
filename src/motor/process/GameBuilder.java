@@ -23,7 +23,7 @@ public class GameBuilder {
 	}
 
 	private static void intializePlayer(Map map, MobileElementManager manager) {
-		Block block = map.getBlock(3, 3);
+		Block block = map.getBlock(5, 7);
 		Joueur player = new Joueur(block);
 		manager.set(player);
 	}

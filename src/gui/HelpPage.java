@@ -36,6 +36,7 @@ public class HelpPage extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(preferredSize);
+		setLocationRelativeTo(null);
 		setResizable(false);
 		monConten = new JPanel();
 		setContentPane(monConten);

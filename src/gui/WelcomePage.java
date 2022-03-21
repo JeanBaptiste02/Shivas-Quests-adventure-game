@@ -105,6 +105,9 @@ private class startGame implements ActionListener {
     			Thread gameThread = new Thread(gameMainGUI);
     			gameThread.start();
     			
+    			new OptionsWindow("Options");
+
+    			
     		}
     	}
     }
