@@ -7,7 +7,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.*;
-
+/**
+ * this class creates a new window containing more functionnalities for the game
+ * @author Damodarane-Elumalai-Zhang
+ *
+ */
 public class OptionsWindow extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
@@ -20,12 +24,18 @@ public class OptionsWindow extends JFrame{
 	private Container contentPane;
 	private JLabel pseudolab, chrono, lvlMaximal, equipinfotitle, equipinfo, equipinfo2,equipinfo3,equipinfo4, questInfo, SpeedModif;
 	
-
+	/**
+	 * constructor
+	 * @param title2 is the title of the window : "options"
+	 */
 	public OptionsWindow(String title2) {
 		super(title2);
 		init();
 	}
 	
+	/**
+	 * this method initiates the window
+	 */
 	public void init() {
 		
 		//permet d'afficher la fenetre
@@ -39,6 +49,9 @@ public class OptionsWindow extends JFrame{
 		initPane();
 	}
 	
+	/**
+	 * creates different widgets/tabs
+	 */
 	protected void initPane() {
 		
 		mygrid = new GridLayout(1, 1); 
@@ -54,7 +67,7 @@ public class OptionsWindow extends JFrame{
 		p1.setLayout(null);
 		tabs.add("Profil", p1);
 		
-		contentp1(); 
+		contentp1(); //method which contains all the components of p1
 		
 		
 		p2 = new JPanel();
@@ -62,7 +75,7 @@ public class OptionsWindow extends JFrame{
 		p2.setBackground(Color.GRAY);
 		tabs.add("Equipements", p2);
 		
-		contentp2();
+		contentp2(); //method which contains all the components of p2
 
 		
 		p3 = new JPanel();
@@ -70,19 +83,22 @@ public class OptionsWindow extends JFrame{
 		p3.setBackground(Color.GRAY);
 		tabs.add("Quêtes", p3);
 		
-		contentp3();
+		contentp3(); //method which contains all the components of p3
 		
 		p4 = new JPanel();
 		p4.setLayout(null);
 		p4.setBackground(Color.GRAY);
 		tabs.add("Paramètres", p4);
 		
-		contentp4();
+		contentp4(); //method which contains all the components of p4
 		
-		contentPane.add(tabs);
+		contentPane.add(tabs); //adding all these tabs to the contentPane
 
 	}
 	
+	/**
+	 * contents of P1
+	 */
 	public void contentp1() {
 		pseudolab = new JLabel("Pseudo");
 		pseudolab.setBounds(51, 10, 45, 13);
@@ -109,6 +125,9 @@ public class OptionsWindow extends JFrame{
 		p1.add(maxlvl);
 	}
 	
+	/**
+	 * contents of P2
+	 */
 	public void contentp2() {
 		equipinfotitle = new JLabel("Equipements");
 		equipinfotitle.setForeground(Color.WHITE);
@@ -129,6 +148,9 @@ public class OptionsWindow extends JFrame{
 		p2.add(equipinfo4);
 	}
 	
+	/**
+	 * contents of P3
+	 */
 	public void contentp3() {
 		questInfo = new JLabel("Quêtes");
 		questInfo.setForeground(Color.WHITE);
@@ -136,6 +158,9 @@ public class OptionsWindow extends JFrame{
 		p3.add(questInfo);
 	}
 	
+	/**
+	 * contents of P4
+	 */
 	public void contentp4(){
 		SpeedModif = new JLabel("Vitesse");
 		SpeedModif.setFont(new Font("Tahoma", Font.BOLD, 13));
