@@ -1,5 +1,6 @@
 package gui;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -7,6 +8,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  * this class creates a new window containing more functionnalities for the game
  * @author Damodarane-Elumalai-Zhang
@@ -22,7 +25,8 @@ public class OptionsWindow extends JFrame{
 	private JTextField maxlvl;
 	private GridLayout mygrid;
 	private Container contentPane;
-	private JLabel pseudolab, chrono, lvlMaximal, equipinfotitle, equipinfo, equipinfo2,equipinfo3,equipinfo4, questInfo, SpeedModif;
+	private JLabel pseudolab, chrono, lvlMaximal, equipinfotitle, equipinfo, equipinfo2,equipinfo3,equipinfo4, questInfo, SpeedModif,WelcomeUsr,WelcomeUsr2;
+	private JButton recButton;
 	
 	/**
 	 * constructor
@@ -108,6 +112,16 @@ public class OptionsWindow extends JFrame{
 		pseudoplace.setBounds(51, 22, 96, 19);
 		p1.add(pseudoplace);
 		
+		recButton = new JButton("save");
+		recButton.setBounds(162, 21, 85, 21);
+		recButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WelcomeUsr2.setText(pseudoplace.getText());
+
+			}
+		});
+		p1.add(recButton);
+		
 		chrono = new JLabel("Chrono");
 		chrono.setBounds(51, 60, 45, 13);
 		p1.add(chrono);
@@ -123,6 +137,20 @@ public class OptionsWindow extends JFrame{
 		maxlvl = new JTextField();
 		maxlvl.setBounds(162, 74, 96, 19);
 		p1.add(maxlvl);
+		
+		WelcomeUsr = new JLabel("Hello");
+		WelcomeUsr.setFont(new Font("Source Serif Pro ExtraLight", Font.PLAIN, 15));
+		WelcomeUsr.setForeground(Color.GREEN);
+		WelcomeUsr.setBounds(163, 156, 197, 67);
+		p1.add(WelcomeUsr);
+		
+		WelcomeUsr2 = new JLabel("");
+		WelcomeUsr2.setFont(new Font("Source Serif Pro ExtraLight", Font.PLAIN, 15));
+		WelcomeUsr2.setForeground(Color.BLUE);
+		WelcomeUsr2.setBounds(163, 170, 197, 67);
+		p1.add(WelcomeUsr2);
+
+		
 	}
 	
 	/**

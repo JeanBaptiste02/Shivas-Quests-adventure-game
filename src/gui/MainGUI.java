@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,9 +25,13 @@ public class MainGUI extends JFrame implements Runnable {
 	private Map map;
 	private MobileElementManager manager;
 	private GameDisplay dashboard;
+	private InfoPanel infoPanel;
+
 	
 	public MainGUI(String title) {
 		super(title);
+		infoPanel = new InfoPanel();
+		add(BorderLayout.NORTH, infoPanel);
 		init();
 	}
 	
