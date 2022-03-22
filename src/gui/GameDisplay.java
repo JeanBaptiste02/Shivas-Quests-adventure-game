@@ -38,8 +38,8 @@ public class GameDisplay extends JPanel {
 		
 		Graphics2D g2 = (Graphics2D)g; // permet d'avoir plus de fonctionalité graphique
 		
-		paintStrategy.paint(map, g2);
 		Joueur player = manager.getPlayer();
+		paintStrategy.paint(map, player, g2);
 		paintStrategy.paint(player,g2);
 		
 		if (debugGrid) {

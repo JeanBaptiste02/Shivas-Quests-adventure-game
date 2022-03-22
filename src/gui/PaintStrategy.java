@@ -18,35 +18,74 @@ import motor.mobile.Joueur;
  */
 public class PaintStrategy {
 	
-	public void paint(Map map, Graphics2D g2) {
+	public void paint(Map map, Joueur p, Graphics2D g2) {
 		Block[][] blocks = map.getBlocks();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 
-		MapBuilder buildMap = new MapBuilder("src/maps/map01.txt");
-		
+		MapBuilder m = new MapBuilder("src/maps/map01.txt");
+
+		Block position = p.getPosition();
+
 	    Image[] array = new Image[10];                  // tableau de 10 images contenant les differents types de blocks
 	    array[0] = BlockManager.readImage("images/blocks/grass.png");
 	    array[1] = BlockManager.readImage("images/blocks/tree.png");
 	    array[2] = BlockManager.readImage("images/blocks/flame.png");
 	    array[3] = BlockManager.readImage("images/blocks/water.png");
-	    
+
 	    int columnIndex = 0;
 	    int lineIndex = 0;
-	
+
 	    while(columnIndex < map.getColumnCount() && lineIndex < map.getLineCount()) {
 	    	Block block = blocks[lineIndex][columnIndex];
-			
+
 	    	int x = block.getColumn();
 	    	int y = block.getLine();
-	
-			Iterator<Integer> iterator = buildMap.getMapData().iterator(); // parcours l'arraylist
+
+			Iterator<Integer> iterator = m.getMapData().iterator(); // parcours l'arraylist
 			while (iterator.hasNext()) {
 				Integer currentId = iterator.next();
-			
-				g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null); // affiche le type de block à l'indice correspondant du tableau
+
+
+				if((position.getColumn() <= 15 && position.getColumn() >= 0) && (position.getLine() <= 11 && position.getLine() >= 0)
+					&& (x <= 15 && x >= 0) && (y <= 11 && y >= 0)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null); // affiche le type de block a l'indice correspondant du tableau
+				}
+				if((position.getColumn() <= 31 && position.getColumn() >= 16) && (position.getLine() <= 11 && position.getLine() >= 0)
+					&& (x <= 31 && x >= 16) && (y <= 11 && y >= 0)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 47 && position.getColumn() >= 32) && (position.getLine() <= 11 && position.getLine() >= 0)
+					&& (x <= 47 && x >= 32) && (y <= 11 && y >= 0)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 15 && position.getColumn() >= 0) && (position.getLine() <= 23 && position.getLine() >= 12)
+					&& (x <= 15 && x >= 0) && (y <= 23 && y >= 12)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 31 && position.getColumn() >= 16) && (position.getLine() <= 23 && position.getLine() >= 12)
+					&& (x <= 31 && x >= 16) && (y <= 23 && y >= 12)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 47 && position.getColumn() >= 32) && (position.getLine() <= 23 && position.getLine() >= 12)
+					&& (x <= 47 && x >= 32) && (y <= 23 && y >= 12)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 15 && position.getColumn() >= 0) && (position.getLine() <= 35 && position.getLine() >= 24)
+					&& (x <= 15 && x >= 0) && (y <= 35 && y >= 24)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 31 && position.getColumn() >= 16) && (position.getLine() <= 35 && position.getLine() >= 24)
+					&& (x <= 31 && x >= 16) && (y <= 35 && y >= 24)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+				if((position.getColumn() <= 47 && position.getColumn() >= 32) && (position.getLine() <= 35 && position.getLine() >= 24)
+					&& (x <= 47 && x >= 32) && (y <= 35 && y >= 24)) {
+					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+				}
+
 				columnIndex++;
 				x++;
-				
+
 				if(columnIndex == map.getColumnCount()) {
 					columnIndex = 0;
 					x = 0;
@@ -54,7 +93,7 @@ public class PaintStrategy {
 					y++;
 				}
 			}
-	    }		
+	    }
 	}
 	
 	public void paint(Joueur p, Graphics2D graphics) {
