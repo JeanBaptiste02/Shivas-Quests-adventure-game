@@ -23,12 +23,12 @@ public class PaintStrategy {
 		Block[][] blocks = map.getBlocks();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 
-		MapBuilder m = new MapBuilder("images/maps/map.txt");
+		MapBuilder m = new MapBuilder("images/maps/map.txt"); // map text file
 
 		Block position = p.getPosition();
 		Block posPoint = point.getPosition();
 
-	    Image[] array = new Image[10];                  // tableau de 10 images contenant les differents types de blocks
+	    Image[] array = new Image[10];                  // array of 10 images which is contained in the blocks
 	    array[0] = BlockManager.readImage("images/blocks/grass.png");
 	    array[1] = BlockManager.readImage("images/blocks/tree.png");
 	    array[2] = BlockManager.readImage("images/blocks/flame.png");
