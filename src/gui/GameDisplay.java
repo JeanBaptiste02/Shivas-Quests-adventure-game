@@ -3,12 +3,15 @@ package gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.HashMap;
 
 import javax.swing.JPanel;
 import configuration.GameConfiguration;
 
 import motor.map.Map;
+import motor.map.MapBuilder;
 import motor.mobile.Joueur;
+import motor.mobile.JoueurFictif;
 import motor.process.MobileElementManager;
 
 /**
@@ -25,6 +28,7 @@ public class GameDisplay extends JPanel {
 	private MobileElementManager manager;
 	private PaintStrategy paintStrategy = new PaintStrategy();
 	
+	
 	public GameDisplay(Map map, MobileElementManager manager) {
 		this.map = map;
 		this.manager = manager;
@@ -39,8 +43,11 @@ public class GameDisplay extends JPanel {
 		Graphics2D g2 = (Graphics2D)g; // permet d'avoir plus de fonctionalité graphique
 		
 		Joueur player = manager.getPlayer();
-		paintStrategy.paint(map, player, g2);
+		JoueurFictif point = manager.getPoint();
+		
+		paintStrategy.paint(map, player, point, g2);
 		paintStrategy.paint(player,g2);
+		paintStrategy.paint(point, g2);
 		
 		if (debugGrid) {
 			drawDebugGrid(g);

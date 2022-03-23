@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -17,7 +16,6 @@ import motor.process.MobileElementManager;
  * @author D.JB E.SRI Z.VIC
  *
  */
-@SuppressWarnings("serial")
 public class MainGUI extends JFrame implements Runnable {
 	
 	private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
@@ -25,13 +23,9 @@ public class MainGUI extends JFrame implements Runnable {
 	private Map map;
 	private MobileElementManager manager;
 	private GameDisplay dashboard;
-	private InfoPanel infoPanel;
-
 	
 	public MainGUI(String title) {
 		super(title);
-		infoPanel = new InfoPanel();
-		add(BorderLayout.NORTH, infoPanel);
 		init();
 	}
 	
@@ -74,20 +68,28 @@ public class MainGUI extends JFrame implements Runnable {
 			char keyChar = event.getKeyChar();
 			switch (keyChar) {
 
-			case 'q': 
+			case 'q':
+					manager.getPoint().setLeftPressed(true);
 					manager.getPlayer().setLeftPressed(true);
+					manager.moveLeftPlayerFictional();
 					manager.moveLeftPlayer();
 				break;
 			case 'd':
+					manager.getPoint().setRightPressed(true);
 					manager.getPlayer().setRightPressed(true);
+					manager.moveRightPlayerFictional();
 					manager.moveRightPlayer();
 				break;
 			case 'z':
+					manager.getPoint().setUpPressed(true);
 					manager.getPlayer().setUpPressed(true);
+					manager.moveTopPlayerFictional();
 					manager.moveTopPlayer();
 				break;
 			case 's':
+					manager.getPoint().setDownPressed(true);
 					manager.getPlayer().setDownPressed(true);
+					manager.moveBottomPlayerFictional();
 					manager.moveBottomPlayer();
 			default:
 				break;
@@ -97,11 +99,16 @@ public class MainGUI extends JFrame implements Runnable {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
+			
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
+			
 		}
 	}
+	
+	
+
 }

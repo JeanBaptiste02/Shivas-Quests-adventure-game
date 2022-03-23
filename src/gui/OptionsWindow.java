@@ -45,7 +45,6 @@ public class OptionsWindow extends JFrame{
 		//permet d'afficher la fenetre
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(500, 300); //taille
-		this.setLocationRelativeTo(null);
 		setVisible(true);
 		setResizable(true); //pour ne pas agrandir la fenetre
 		

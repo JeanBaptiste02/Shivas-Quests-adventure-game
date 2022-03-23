@@ -10,6 +10,7 @@ import motor.map.BlockManager;
 import motor.map.Map;
 import motor.map.MapBuilder;
 import motor.mobile.Joueur;
+import motor.mobile.JoueurFictif;
 
 /**
  * 
@@ -18,13 +19,14 @@ import motor.mobile.Joueur;
  */
 public class PaintStrategy {
 	
-	public void paint(Map map, Joueur p, Graphics2D g2) {
+	public void paint(Map map, Joueur p, JoueurFictif point, Graphics2D g2) {
 		Block[][] blocks = map.getBlocks();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 
-		MapBuilder m = new MapBuilder("src/maps/map01.txt");
+		MapBuilder m = new MapBuilder("images/maps/map.txt");
 
 		Block position = p.getPosition();
+		Block posPoint = point.getPosition();
 
 	    Image[] array = new Image[10];                  // tableau de 10 images contenant les differents types de blocks
 	    array[0] = BlockManager.readImage("images/blocks/grass.png");
@@ -46,41 +48,258 @@ public class PaintStrategy {
 				Integer currentId = iterator.next();
 
 
-				if((position.getColumn() <= 15 && position.getColumn() >= 0) && (position.getLine() <= 11 && position.getLine() >= 0)
+				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 1
 					&& (x <= 15 && x >= 0) && (y <= 11 && y >= 0)) {
 					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null); // affiche le type de block a l'indice correspondant du tableau
+					if(posPoint.getColumn() == 15) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 0) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 1);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 1);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 11) {
+						Block newPos = map.getBlock(position.getLine() - 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 0) {
+						Block newPos = map.getBlock(position.getLine() + 1, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 1, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 31 && position.getColumn() >= 16) && (position.getLine() <= 11 && position.getLine() >= 0)
+				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 2
 					&& (x <= 31 && x >= 16) && (y <= 11 && y >= 0)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], (x * blockSize) - (16 * blockSize), y * blockSize, blockSize, blockSize, null);
+					if(posPoint.getColumn() == 31) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 16) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 11) {
+						Block newPos = map.getBlock(position.getLine() - 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 0) {
+						Block newPos = map.getBlock(position.getLine() + 1, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 1, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 47 && position.getColumn() >= 32) && (position.getLine() <= 11 && position.getLine() >= 0)
+				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 3
 					&& (x <= 47 && x >= 32) && (y <= 11 && y >= 0)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], (x * blockSize) - (32 * blockSize), y * blockSize, blockSize, blockSize, null);
+					if(posPoint.getColumn() == 47) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 1);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 1);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 32) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 11) {
+						Block newPos = map.getBlock(position.getLine() - 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 0) {
+						Block newPos = map.getBlock(position.getLine() + 1, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 1, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					
 				}
-				if((position.getColumn() <= 15 && position.getColumn() >= 0) && (position.getLine() <= 23 && position.getLine() >= 12)
+				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 4
 					&& (x <= 15 && x >= 0) && (y <= 23 && y >= 12)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], x * blockSize, (y * blockSize) - (12 * blockSize), blockSize, blockSize, null);
+					if(posPoint.getColumn() == 15) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 0) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 1);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 1);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 23) {
+						Block newPos = map.getBlock(position.getLine() - 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 12) {
+						Block newPos = map.getBlock(position.getLine() + 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 31 && position.getColumn() >= 16) && (position.getLine() <= 23 && position.getLine() >= 12)
+				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 5
 					&& (x <= 31 && x >= 16) && (y <= 23 && y >= 12)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], (x * blockSize) - (16 * blockSize), (y * blockSize) - (12 * blockSize), blockSize, blockSize, null);
+					if(posPoint.getColumn() == 31) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 16) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 23) {
+						Block newPos = map.getBlock(position.getLine() - 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 12) {
+						Block newPos = map.getBlock(position.getLine() + 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 47 && position.getColumn() >= 32) && (position.getLine() <= 23 && position.getLine() >= 12)
+				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 6
 					&& (x <= 47 && x >= 32) && (y <= 23 && y >= 12)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], (x * blockSize) - (32 * blockSize), (y * blockSize) - (12 * blockSize), blockSize, blockSize, null);
+					if(posPoint.getColumn() == 47) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 1);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 1);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 32) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 23) {
+						Block newPos = map.getBlock(position.getLine() - 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() + 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 12) {
+						Block newPos = map.getBlock(position.getLine() + 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 15 && position.getColumn() >= 0) && (position.getLine() <= 35 && position.getLine() >= 24)
+				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 7
 					&& (x <= 15 && x >= 0) && (y <= 35 && y >= 24)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], x * blockSize, (y * blockSize) - (24 * blockSize), blockSize, blockSize, null);
+					if(posPoint.getColumn() == 15) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 0) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 1);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 1);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 35) {
+						Block newPos = map.getBlock(position.getLine() - 1, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 1, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 24) {
+						Block newPos = map.getBlock(position.getLine() + 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 31 && position.getColumn() >= 16) && (position.getLine() <= 35 && position.getLine() >= 24)
+				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 8
 					&& (x <= 31 && x >= 16) && (y <= 35 && y >= 24)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], (x * blockSize) - (16 * blockSize), (y * blockSize) - (24 * blockSize), blockSize, blockSize, null);
+					if(posPoint.getColumn() == 31) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() + 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 16) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 35) {
+						Block newPos = map.getBlock(position.getLine() - 1, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 1, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 24) {
+						Block newPos = map.getBlock(position.getLine() + 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
-				if((position.getColumn() <= 47 && position.getColumn() >= 32) && (position.getLine() <= 35 && position.getLine() >= 24)
+				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 9
 					&& (x <= 47 && x >= 32) && (y <= 35 && y >= 24)) {
-					g2.drawImage(array[currentId], x * blockSize, y * blockSize, blockSize, blockSize, null);
+					g2.drawImage(array[currentId], (x * blockSize) - (32 * blockSize), (y * blockSize) - (24 * blockSize), blockSize, blockSize, null);
+					if(posPoint.getColumn() == 47) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() - 1);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 1);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getColumn() == 32) {
+						Block newPos = map.getBlock(position.getLine(), position.getColumn() + 14);
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine(), posPoint.getColumn() - 2);
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 35) {
+						Block newPos = map.getBlock(position.getLine() - 1, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 1, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
+					if(posPoint.getLine() == 24) {
+						Block newPos = map.getBlock(position.getLine() + 10, position.getColumn());
+						p.setPosition(newPos);
+						Block newPosi = map.getBlock(posPoint.getLine() - 2, posPoint.getColumn());
+						point.setPosition(newPosi);
+					}
 				}
 
 				columnIndex++;
@@ -148,8 +367,16 @@ public class PaintStrategy {
 			break;
 		}
 		
-		
+	}
+	
+	public void paint(JoueurFictif point, Graphics2D graphics) {
+		Block position = point.getPosition();
+		int blockSize = GameConfiguration.BLOCK_SIZE;
 
+		int y = position.getLine();
+		int x = position.getColumn();
+		
+		graphics.drawRect(x*blockSize, y*blockSize, blockSize, blockSize);
 	}
 
 	
