@@ -51,7 +51,6 @@ public class MainGUI extends JFrame implements Runnable {
 	public void run() {
 		while (true) {
 			try {
-				
 				Thread.sleep(GameConfiguration.GAME_SPEED);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
@@ -67,7 +66,6 @@ public class MainGUI extends JFrame implements Runnable {
 		public void keyPressed(KeyEvent event) {
 			char keyChar = event.getKeyChar();
 			switch (keyChar) {
-
 			case 'q':
 					manager.getPoint().setLeftPressed(true);
 					manager.getPlayer().setLeftPressed(true);

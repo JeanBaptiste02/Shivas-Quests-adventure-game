@@ -10,6 +10,7 @@ public class Map {
 
 	private int lineCount;
 	private int columnCount;
+	private int id;
 
 	public Map(int lineCount, int columnCount) {
 		this.lineCount = lineCount;
@@ -40,6 +41,19 @@ public class Map {
 		return blocks[line][column];
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Block getBlock(int line, int column, int id) {
+		this.id = id;
+		return blocks[line][column];
+	}
+	
 	public boolean isOnTop(Block block) {
 		int line = block.getLine();
 		return line == 0;

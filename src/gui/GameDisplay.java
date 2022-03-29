@@ -12,6 +12,7 @@ import motor.map.Map;
 import motor.map.MapBuilder;
 import motor.mobile.Joueur;
 import motor.mobile.JoueurFictif;
+import motor.objects.SuperObject;
 import motor.process.MobileElementManager;
 
 /**
@@ -45,7 +46,14 @@ public class GameDisplay extends JPanel {
 		Joueur player = manager.getPlayer();
 		JoueurFictif point = manager.getPoint();
 		
+		//MAP
 		paintStrategy.paint(map, player, point, g2);
+		
+		//OBJECT
+		SuperObject[] object = manager.getObj();
+		paintStrategy.paint(object, map, point, g2);
+		
+		//PLAYER
 		paintStrategy.paint(player,g2);
 		paintStrategy.paint(point, g2);
 		

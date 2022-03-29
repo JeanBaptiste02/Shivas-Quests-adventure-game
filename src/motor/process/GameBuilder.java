@@ -21,6 +21,7 @@ public class GameBuilder {
 		MobileElementManager manager = new MobileElementManager(map);
 		intializePlayer(map, manager);
 		intializeFictionalPlayer(map, manager);
+		intializeObjects(map, manager);
 		return manager;
 	}
 
@@ -34,6 +35,10 @@ public class GameBuilder {
 		Block block = map.getBlock(3, 3);
 		JoueurFictif point = new JoueurFictif(block);
 		manager.setPoint(point);
+	}
+	
+	private static void intializeObjects(Map map, MobileElementManager manager) {
+		manager.setObjects();
 	}
 
 }

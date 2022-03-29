@@ -13,7 +13,6 @@ public class MapBuilder {
 	
 	private ArrayList<Integer> mapData; // l'arraylist qui va stocker tout les nombres du fichier txt
 	
-
 	public MapBuilder(String fileName) {
 		mapData = new ArrayList<>();
 		
