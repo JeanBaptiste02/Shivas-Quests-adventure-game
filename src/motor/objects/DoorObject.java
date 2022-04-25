@@ -4,7 +4,7 @@ import motor.map.Block;
 
 public class DoorObject extends SuperObject{
 
-	public DoorObject(Block position) {
-		super(position);
+	public DoorObject(Block position, String name) {
+		super(position, name);
 	}
 }

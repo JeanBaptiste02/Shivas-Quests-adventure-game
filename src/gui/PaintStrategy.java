@@ -17,24 +17,30 @@ import motor.objects.SuperObject;
 
 
 /**
- * 
+ * Cette classe utilise le pattern Visitor
  * @author D.JB E.SRI Z.VIC
  *
  */
 public class PaintStrategy {
 	
-	
-	
+	/**
+	 * permet de dessiner les composants
+	 * @param map represente la carte du jeu
+	 * @param p represente le joueur original
+	 * @param point represente le joueur fictif
+	 * @param g2
+	 */
 	public void paint(Map map, Joueur p, JoueurFictif point, Graphics2D g2) {
 		Block[][] blocks = map.getBlocks();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 
 		MapBuilder m = new MapBuilder("src/maps/map.txt");
 
-		Block position = p.getPosition();
-		Block posPoint = point.getPosition();
+		Block position = p.getPosition(); //position du joueur original
+		Block posPoint = point.getPosition(); //position du joueur fictif
 
-		Tile tiles = new Tile(10);                  // tableau de 10 images contenant les differents types de blocks
+		Tile tiles = new Tile(10);  // tableau de 10 images contenant les differents types de blocks
+		//on ajoute les images dans le tableau de la classe Tile
 	    Image img1 = BlockManager.readImage("images/tiles/grass.png");
 	    tiles.add(img1);
 	    Image img2 = BlockManager.readImage("images/tiles/tree.png");
@@ -57,12 +63,14 @@ public class PaintStrategy {
 	    	int x = block.getColumn();
 	    	int y = block.getLine();
 
-			Iterator<Integer> iterator = m.getMapData().iterator(); // parcours l'arraylist
+			Iterator<Integer> iterator = m.getMapData().iterator(); // parcours du arraylist de la classe MapBuilder qui stocke tout les chiffres du fichier texte
 			while (iterator.hasNext()) {
 				Integer currentId = iterator.next();
 
-				
-				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 1
+				/*
+				 * map 1
+				 */
+				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) //quand le joueur se trouve entre tel et tel position, faire.....
 					&& (x <= 15 && x >= 0) && (y <= 11 && y >= 0)) {
 					g2.drawImage(tiles.currentImage(currentId), x * blockSize, y * blockSize, blockSize, blockSize, null); // affiche le type de block a l'indice correspondant du tableau
 					if(posPoint.getColumn() == 15) {
@@ -90,7 +98,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 2
+				
+				/*
+				 * map 2
+				 */
+				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0)
 					&& (x <= 31 && x >= 16) && (y <= 11 && y >= 0)) {
 					g2.drawImage(tiles.currentImage(currentId), (x * blockSize) - (16 * blockSize), y * blockSize, blockSize, blockSize, null);
 					
@@ -119,7 +131,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 3
+				
+				/*
+				 * map 3
+				 */
+				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) 
 					&& (x <= 47 && x >= 32) && (y <= 11 && y >= 0)) {
 					g2.drawImage(tiles.currentImage(currentId), (x * blockSize) - (32 * blockSize), y * blockSize, blockSize, blockSize, null);
 					if(posPoint.getColumn() == 47) {
@@ -148,7 +164,11 @@ public class PaintStrategy {
 					}
 					
 				}
-				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 4
+				
+				/*
+				 * map 4
+				 */
+				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) 
 					&& (x <= 15 && x >= 0) && (y <= 23 && y >= 12)) {
 					g2.drawImage(tiles.currentImage(currentId), x * blockSize, (y * blockSize) - (12 * blockSize), blockSize, blockSize, null);
 					if(posPoint.getColumn() == 15) {
@@ -176,7 +196,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 5
+				
+				/*
+				 * map 5
+				 */
+				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12)
 					&& (x <= 31 && x >= 16) && (y <= 23 && y >= 12)) {
 					g2.drawImage(tiles.currentImage(currentId), (x * blockSize) - (16 * blockSize), (y * blockSize) - (12 * blockSize), blockSize, blockSize, null);
 					if(posPoint.getColumn() == 31) {
@@ -204,7 +228,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 6
+				
+				/*
+				 * map 6
+				 */
+				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) 
 					&& (x <= 47 && x >= 32) && (y <= 23 && y >= 12)) {
 					g2.drawImage(tiles.currentImage(currentId), (x * blockSize) - (32 * blockSize), (y * blockSize) - (12 * blockSize), blockSize, blockSize, null);
 					if(posPoint.getColumn() == 47) {
@@ -232,7 +260,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 7
+				
+				/*
+				 * map 7
+				 */
+				if((posPoint.getColumn() <= 15 && posPoint.getColumn() >= 0) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) 
 					&& (x <= 15 && x >= 0) && (y <= 35 && y >= 24)) {
 					g2.drawImage(tiles.currentImage(currentId), x * blockSize, (y * blockSize) - (24 * blockSize), blockSize, blockSize, null);
 					if(posPoint.getColumn() == 15) {
@@ -260,7 +292,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 8
+				
+				/*
+				 * map 8
+				 */
+				if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) 
 					&& (x <= 31 && x >= 16) && (y <= 35 && y >= 24)) {
 					g2.drawImage(tiles.currentImage(currentId), (x * blockSize) - (16 * blockSize), (y * blockSize) - (24 * blockSize), blockSize, blockSize, null);
 					if(posPoint.getColumn() == 31) {
@@ -288,7 +324,11 @@ public class PaintStrategy {
 						point.setPosition(newPosi);
 					}
 				}
-				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 9
+				
+				/*
+				 * map 9
+				 */
+				if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) 
 					&& (x <= 47 && x >= 32) && (y <= 35 && y >= 24)) {
 					g2.drawImage(tiles.currentImage(currentId), (x * blockSize) - (32 * blockSize), (y * blockSize) - (24 * blockSize), blockSize, blockSize, null);
 					if(posPoint.getColumn() == 47) {
@@ -330,6 +370,11 @@ public class PaintStrategy {
 	    }
 	}
 	
+	/**
+	 * permet de dessiner le joueur original en fonction de ses deplacements
+	 * @param p represente le joueur original
+	 * @param graphics
+	 */
 	public void paint(Joueur p, Graphics2D graphics) {
 		Block position = p.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
@@ -384,6 +429,11 @@ public class PaintStrategy {
 		
 	}
 	
+	/**
+	 * permet de dessiner le joueur fictif en fonction de ses deplacements
+	 * @param point represente le joueur fictif
+	 * @param graphics
+	 */
 	public void paint(JoueurFictif point, Graphics2D graphics) {
 		Block position = point.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
@@ -391,9 +441,16 @@ public class PaintStrategy {
 		int y = position.getLine();
 		int x = position.getColumn();
 		
-		graphics.drawRect(x*blockSize, y*blockSize, blockSize, blockSize);
+		graphics.drawRect(x*blockSize, y*blockSize, blockSize, blockSize); // dessine un carre autour du joueur fictif pour le reconnaitre plus facilement
 	}
 	
+	/**
+	 * dessine les objets sur la map
+	 * @param obj represente les objets en question
+	 * @param map represente la carte du jeu
+	 * @param point represente le joueur fictif
+	 * @param graphics 
+	 */
 	public void paint(SuperObject[] obj, Map map, JoueurFictif point, Graphics2D graphics) {
 		Block[][] blocks = map.getBlocks();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
@@ -402,12 +459,14 @@ public class PaintStrategy {
 		
 		Block posPoint = point.getPosition();
 		
-		ObjectsImagesTab objTab = new ObjectsImagesTab(10);
-		
+		ObjectsImagesTab objTab = new ObjectsImagesTab(10); // tableau de 10 images contenant les differents types de blocks
+
 		Image img1 = BlockManager.readImage("images/objects/key.png");
 		Image img2 = BlockManager.readImage("images/objects/door.png");
 		Image img3 = BlockManager.readImage("images/objects/doorRight.png");
 		Image img4 = BlockManager.readImage("images/objects/crystal.png");
+
+		//on ajoute les images dans le tableau
 		objTab.add(img1);
 		objTab.add(img1);
 		objTab.add(img1);
@@ -419,7 +478,9 @@ public class PaintStrategy {
 		objTab.add(img4);
 		
 		for(int i=0; i<obj.length; i++) {
+			
 			if(obj[i] != null) {
+				
 				int columnIndex = 0;
 				int lineIndex = 0;
 				while(columnIndex < map.getColumnCount() && lineIndex < map.getLineCount()) {
@@ -428,73 +489,85 @@ public class PaintStrategy {
 					int x = block.getColumn();
 					int y = block.getLine();
 				
-					Iterator<Integer> iterator = m.getMapData().iterator(); // parcours l'arraylist
+					Iterator<Integer> iterator = m.getMapData().iterator();  // parcours du arraylist de la classe MapBuilder qui stocke tout les chiffres du fichier texte
 					while (iterator.hasNext()) {
-						Integer currentId = iterator.next();
+						iterator.next();
 									
-						if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) // map 2
+						/*
+						 * map 2 
+						 */
+						if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 11 && posPoint.getLine() >= 0) 
 									&& (x <= 31 && x >= 16) && (y <= 11 && y >= 0)) {
-							if(i == 0) {
+							if(obj[i].getName() == "Key1") { // KEY1
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (16 * blockSize), yO * blockSize, blockSize, blockSize, null);
 							}
-							if(i == 3) {
+							if(obj[i].getName() == "Door1") { // DOOR1
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (16 * blockSize) , yO * blockSize, blockSize, blockSize, null);
 							}
-							if(i == 6) {
+							if(obj[i].getName() == "Crystal1") { //CRYSTAL1
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (16 * blockSize), yO * blockSize, blockSize, blockSize, null);
 							}
 						}
-						if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) // map 6
+						
+						/*
+						 * map 6
+						 */
+						if((posPoint.getColumn() <= 47 && posPoint.getColumn() >= 32) && (posPoint.getLine() <= 23 && posPoint.getLine() >= 12) 
 								&& (x <= 47 && x >= 32) && (y <= 23 && y >= 12)) {
-							if(i == 1) {
+							if(obj[i].getName() == "Key2") { // KEY2
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (32 * blockSize), (yO * blockSize) - (12 * blockSize), blockSize, blockSize, null);
 							}
-							if(i == 4) {
+							if(obj[i].getName() == "Door2") { // DOOR2
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (32 * blockSize), (yO * blockSize) - (12 * blockSize), blockSize, blockSize, null);
 							}
-							if(i == 7) {
+							if(obj[i].getName() == "Crystal2") { // CRYSTAL2
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (32 * blockSize), (yO * blockSize) - (12 * blockSize), blockSize, blockSize, null);
 							}
 						}
-						if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) // map 8
+						
+						/*
+						 * map 8
+						 */
+						if((posPoint.getColumn() <= 31 && posPoint.getColumn() >= 16) && (posPoint.getLine() <= 35 && posPoint.getLine() >= 24) 
 								&& (x <= 31 && x >= 16) && (y <= 35 && y >= 24)) {
-							if(i == 2) {
+							if(obj[i].getName() == "Key3") { // KEY3
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (16 * blockSize), (yO * blockSize) - (24 * blockSize), blockSize, blockSize, null);
 							}
-							if(i == 5) {
+							if(obj[i].getName() == "Door3") { // DOOR3
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (16 * blockSize), (yO * blockSize) - (24 * blockSize), blockSize, blockSize, null);
 							}
-							if(i == 8) {
+							if(obj[i].getName() == "Crystal3") { // CRYSTAL3
 								Block posiObj = obj[i].getPosition();
 								int yO = posiObj.getLine();
 								int xO = posiObj.getColumn();
 								graphics.drawImage(objTab.currentImage(i), (xO * blockSize) - (16 * blockSize), (yO * blockSize) - (24 * blockSize), blockSize, blockSize, null);
 							}
 						}
+						
 						columnIndex++;
 						x++;
 				
@@ -505,9 +578,8 @@ public class PaintStrategy {
 								y++;
 						}
 					}
-				}	
-				
-			}
+				}
+			}		
 		}
 	}
 }

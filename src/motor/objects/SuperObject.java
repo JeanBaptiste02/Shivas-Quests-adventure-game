@@ -6,10 +6,11 @@ import motor.map.Block;
 public abstract class SuperObject {
 	
 	private Block position;
-//	private String name;
+	private String name;
 	
-	public SuperObject(Block position) {
+	public SuperObject(Block position, String name) {
 		this.position = position;
+		this.name = name;
 		
 	}
 
@@ -22,11 +23,11 @@ public abstract class SuperObject {
 	}
 	
 
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
