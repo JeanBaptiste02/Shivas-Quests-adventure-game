@@ -22,7 +22,7 @@ public class BlockManager {
 		try {
 			return ImageIO.read(new File(cheminfichier));
 		} catch (IOException e) {
-			System.err.println("impossible to open this image, please try again !");
+			System.err.println("impossible d'ouvrir ce fichier image");
 			return null;
 		}
 	}

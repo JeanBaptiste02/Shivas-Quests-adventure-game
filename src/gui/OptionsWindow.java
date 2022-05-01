@@ -3,8 +3,9 @@ package gui;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
+
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.*;
@@ -19,13 +20,13 @@ public class OptionsWindow extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel p1, p2, p3, p4;
+	private JPanel p1, p2, p3;
 	private JTextField pseudoplace;
-	private JTextField time;
-	private JTextField maxlvl;
 	private GridLayout mygrid;
 	private Container contentPane;
-	private JLabel pseudolab, chrono, lvlMaximal, equipinfotitle, equipinfo, equipinfo2,equipinfo3,equipinfo4, questInfo, SpeedModif,WelcomeUsr,WelcomeUsr2;
+	private JLabel pseudolab ,WelcomeUsr,WelcomeUsr2; // Label used in the panel 1
+	private JLabel infotitle, infotitle2, infotitle3;// Label used in the panel 2 for the titles
+	private JTextArea info, info2, info3;
 	private JButton recButton;
 	
 	/**
@@ -44,9 +45,9 @@ public class OptionsWindow extends JFrame{
 		
 		//permet d'afficher la fenetre
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.setSize(500, 300); //taille
+		this.setSize(500, 450); //taille
 		setVisible(true);
-		setResizable(true); //pour ne pas agrandir la fenetre
+		setResizable(false); //pour ne pas agrandir la fenetre
 		
 		//appel de la fonction initLayout()
 		initPane();
@@ -72,28 +73,20 @@ public class OptionsWindow extends JFrame{
 		
 		contentp1(); //method which contains all the components of p1
 		
-		
 		p2 = new JPanel();
 		p2.setLayout(null);
 		p2.setBackground(Color.GRAY);
-		tabs.add("Equipements", p2);
+		tabs.add("Info", p2);
 		
 		contentp2(); //method which contains all the components of p2
-
+		
 		
 		p3 = new JPanel();
 		p3.setLayout(null);
 		p3.setBackground(Color.GRAY);
-		tabs.add("Quêtes", p3);
+		tabs.add("Culture", p3);
 		
 		contentp3(); //method which contains all the components of p3
-		
-		p4 = new JPanel();
-		p4.setLayout(null);
-		p4.setBackground(Color.GRAY);
-		tabs.add("Paramètres", p4);
-		
-		contentp4(); //method which contains all the components of p4
 		
 		contentPane.add(tabs); //adding all these tabs to the contentPane
 
@@ -121,22 +114,6 @@ public class OptionsWindow extends JFrame{
 		});
 		p1.add(recButton);
 		
-		chrono = new JLabel("Chrono");
-		chrono.setBounds(51, 60, 45, 13);
-		p1.add(chrono);
-		
-		time = new JTextField();
-		time.setBounds(23, 74, 96, 19);
-		p1.add(time);
-		
-		lvlMaximal = new JLabel("Maximum Levels : 9");
-		lvlMaximal.setBounds(166, 60, 150, 13);
-		p1.add(lvlMaximal);
-		
-		maxlvl = new JTextField();
-		maxlvl.setBounds(162, 74, 96, 19);
-		p1.add(maxlvl);
-		
 		WelcomeUsr = new JLabel("Hello");
 		WelcomeUsr.setFont(new Font("Source Serif Pro ExtraLight", Font.PLAIN, 15));
 		WelcomeUsr.setForeground(Color.GREEN);
@@ -147,57 +124,86 @@ public class OptionsWindow extends JFrame{
 		WelcomeUsr2.setFont(new Font("Source Serif Pro ExtraLight", Font.PLAIN, 15));
 		WelcomeUsr2.setForeground(Color.BLUE);
 		WelcomeUsr2.setBounds(163, 170, 197, 67);
-		p1.add(WelcomeUsr2);
-
-		
-	}
+		p1.add(WelcomeUsr2);	
+	}	
 	
 	/**
 	 * contents of P2
 	 */
 	public void contentp2() {
-		equipinfotitle = new JLabel("Equipements");
-		equipinfotitle.setForeground(Color.WHITE);
-		equipinfotitle.setBounds(10, 10, 112, 20);
-		p2.add(equipinfotitle);
 
-		equipinfo = new JLabel("« Pinaka »,l’arc Dragon Subduing Palm");
-		equipinfo2 = new JLabel("« Trishul », le trident	Diamond Sutra");
-		equipinfo3 = new JLabel("Casque	True fire of Samadhi");
-		equipinfo4 = new JLabel ("Armure");
-		equipinfo.setBounds(10, 68, 600, 19);
-		equipinfo2.setBounds(10, 94, 600, 19);
-		equipinfo3.setBounds(10, 123, 600, 19);
-		equipinfo4.setBounds(10, 152, 600, 19);
-		p2.add(equipinfo);
-		p2.add(equipinfo2);
-		p2.add(equipinfo3);
-		p2.add(equipinfo4);
-	}
+		infotitle = new JLabel("Les Touches :");
+		
+		
+		infotitle.setForeground(Color.WHITE);
+		infotitle.setBounds(10, 10, 112, 20);
+		p2.add(infotitle);
+
+		info = new JTextArea("La touche « z », permet d'aller vers le haut \n"+"La touche « s », permet d'aller en bas \n"+"La touche « d », permet d'aller vers la droite \n"+"La touche « q »,permet d'aller vers la gauche \n"+"« Le clic gauche », permet de selectionner les bouttons");
+	
+		info.setBounds(10, 40, 600, 80);
+		info.setEditable(false);
+		info.setBackground(Color.GRAY);
+		info.setFont(new Font("ARIAL", Font.BOLD, 12));
+		info.setForeground(Color.BLACK);
+		
+		p2.add(info);
+		
+		infotitle2 = new JLabel("Les items et Objets :");
+		
+		infotitle2.setForeground(Color.WHITE);
+		infotitle2.setBounds(10, 120, 112, 20);
+		p2.add(infotitle2);
+		info2 = new JTextArea("« Le Trishula » est le trident, attribut de Shiva, Un dieu de la mythologie hindouïste. \n" +
+							"« Ushnisha » la courronne de Bouddha \n"+
+							"« Pinaka » est l'arc original de Shiva utilisé pour la destruction totale \n"+
+							"« Le Poing », objet obtenu par la défaite du petit monstre, permet de briser le mur pour avancer dans l'autre partie de la map \n"+
+							"« Le Crystal », objet permettant d'ouvrir la barriére permettant de combattre le boss finale \n"+
+							"« La clé», objet obtenu par la défaite du mini-bosse (gardien) permettant d'ouvrir la porte au crystal \n");
+		
+		info2.setBounds(10, 150, 400, 220);
+		info2.setEditable(true);
+		info2.setBackground(Color.GRAY);
+		info2.setFont(new Font("ARIAL", Font.BOLD, 12));
+		info2.setForeground(Color.BLACK);
+		info2.setLineWrap(true);
+		info2.setWrapStyleWord(true);
+		p2.add(info2);
+		
+		}
 	
 	/**
-	 * contents of P3
+	 * contents of P2
 	 */
 	public void contentp3() {
-		questInfo = new JLabel("Quêtes");
-		questInfo.setForeground(Color.WHITE);
-		questInfo.setBounds(10, 10, 112, 20);
-		p3.add(questInfo);
-	}
-	
-	/**
-	 * contents of P4
-	 */
-	public void contentp4(){
-		SpeedModif = new JLabel("Vitesse");
-		SpeedModif.setFont(new Font("Tahoma", Font.BOLD, 13));
-		SpeedModif.setForeground(Color.GREEN);
-		SpeedModif.setBackground(Color.DARK_GRAY);
-		SpeedModif.setBounds(130, 56, 75, 22);
-		p4.add(SpeedModif);
+
+		infotitle3 = new JLabel("Les Monstres :");
 		
-		JSpinner chosSpeedNumb = new JSpinner();
-		chosSpeedNumb.setBounds(215, 53, 94, 32);
-		p4.add(chosSpeedNumb);
-	}
+		
+		infotitle3.setForeground(Color.WHITE);
+		infotitle3.setBounds(10, 10, 112, 20);
+		p3.add(infotitle3);
+
+		info3 = new JTextArea("« Niu Mo Wang » est le boss final de notre jeu, c'est une entité qui appararaît dans la « pérégrination vers l'ouest ».  \n"+
+				"« Asuras », Mini-bosss, demi-dieu belligérants du bouddhisme  \n"+
+                "«Monstre de feu», mini monstre \n");
+	
+		info3.setBounds(10, 40, 400, 120);
+		info3.setEditable(false);
+		info3.setBackground(Color.GRAY);
+		info3.setFont(new Font("ARIAL", Font.BOLD, 12));
+		info3.setForeground(Color.BLACK);
+		info3.setLineWrap(false);
+		info3.setLineWrap(true);
+		info3.setWrapStyleWord(true);
+		
+		p3.add(info3);
+
+
+		
+	
+	}	
+	
+	
+	
 }

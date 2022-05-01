@@ -18,8 +18,6 @@ import configuration.GameConfiguration;
 
 import java.awt.Font;
 
-
-
 @SuppressWarnings("serial")
 public class WelcomePage extends JFrame{
 	
@@ -27,7 +25,7 @@ public class WelcomePage extends JFrame{
 	private Container myfem;
 	private JPanel rightSidePan;
 	private JLabel mainTitle;
-	private JButton start, achieve, help;
+	private JButton start;
 		
 	private final static Dimension preferredSize = new Dimension(GameConfiguration.WINDOW_WIDTH, GameConfiguration.WINDOW_HEIGHT);
 	
@@ -71,59 +69,27 @@ public class WelcomePage extends JFrame{
 		start.setBounds(300, 161, 120, 31); //setting position and size
 		rightSidePan.add(start); //adding the button to the panel
 		start.addActionListener(new startGame()); //adding an actionListener to the button
-		
-		achieve = new JButton("Achievements");
-		achieve.setBackground(Color.BLUE);
-		achieve.setForeground(Color.RED);
-		achieve.setBounds(300, 218, 120, 31);//setting position and size
-		rightSidePan.add(achieve);//adding the button to the panel
-		
-		help = new JButton("Help");
-		help.setBackground(Color.BLUE);
-		help.setForeground(Color.RED);
-		help.setBounds(300, 276, 120, 31);//setting position and size
-		rightSidePan.add(help);//adding the button to the panel
-		help.addActionListener(new HlpGame());
-		
-		
+			
 	}
 	
-	
-/*
- * action Listeners
- */
-private class startGame implements ActionListener {
-    	
-    	public void actionPerformed(ActionEvent e) {
-    		
-    		if(e.getSource()==start) {
-    			
-    			mafenetre.dispose();
-    			mafenetre.setVisible(false);
-    			MainGUI gameMainGUI = new MainGUI("Shiva's Quests");
+	/*
+	* action Listeners
+	 */
+	private class startGame implements ActionListener {
+	    	
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    		if(e.getSource()==start) {
+	    			
+	    			mafenetre.dispose();
+	    			mafenetre.setVisible(false);
+	    			MainGUI gameMainGUI = new MainGUI("Shiva's Quests");
 
-    			Thread gameThread = new Thread(gameMainGUI);
-    			gameThread.start();
-    			
-    			new OptionsWindow("Options");
-
-    			
-    		}
-    	}
-    }
-
-private class HlpGame implements ActionListener{
-	public void actionPerformed(ActionEvent e) {
-		
-		if(e.getSource()==help) {
-			
-			mafenetre.dispose();
-			mafenetre.setVisible(false);
-			HelpPage frame = new HelpPage("Shiva's Quests");
-			frame.setVisible(true);
-
-			
-		}
+	    			Thread gameThread = new Thread(gameMainGUI);
+	    			gameThread.start();
+	    			
+	    		}
+	    	}
 	}
-}
+
 }

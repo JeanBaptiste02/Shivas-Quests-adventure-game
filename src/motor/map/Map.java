@@ -3,7 +3,7 @@ package motor.map;
 /**
  * 
  * @author D.JB E.SRI Z.VIC
- *cette classe gere les blocks, positions...
+ *cette classe gere les  positions de chaque blocks
  */
 public class Map {
 	private Block[][] blocks;

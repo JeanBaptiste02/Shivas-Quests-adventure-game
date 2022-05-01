@@ -12,6 +12,7 @@ public class Joueur extends MouvElements{
 
 	private boolean upPressed, downPressed, leftPressed, rightPressed;
 		
+
 	public Joueur(Block position) {
 		super(position);
 	}
@@ -47,6 +48,8 @@ public class Joueur extends MouvElements{
 	public void setRightPressed(boolean right) {
 		this.rightPressed = right;
 	}
+	
+	
 	
 
 }

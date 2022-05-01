@@ -1,8 +1,0 @@
-bouger l'arrière plan
-travailler les collisions
-ajouter d'autres personnages
-travailler les collisions avec les autres personnages
-travailler sur les différents mondes
-travailler sur les quêtes
-travailler sur les obstacles
-travailler sur les combats contre les monstres
