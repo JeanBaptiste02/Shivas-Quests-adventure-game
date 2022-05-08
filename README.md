@@ -3,7 +3,7 @@
 ## Introduction
 Ce projet est mené par <b> DAMODARANE Jean-Baptiste, ELUMALAI Sriguru et ZHANG Victor </b>, étudiants en Licence 2 Informatique en groupe C.
 <br></br>
-Le projet se base sur le concept de <b>  jeu d'avanture </b>, nommé "SHIVA'S QUESTS"
+Le projet se base sur le concept de <b>  jeu d'aventure </b>, nommé "SHIVA'S QUESTS"
 
 **La version java**
 <br></br>
