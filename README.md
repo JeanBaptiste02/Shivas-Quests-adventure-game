@@ -41,21 +41,6 @@ Ce dépôt GitHub contient les éléments suivants :
 ## Licence
 Ce projet est sous Licence GNU Affero General . Consultez le fichier LICENSE pour plus de détails.
 
-## © L'équipe Shiva'sQuests. Tous droits réservés.
+## © Copyright L'équipe Shiva'sQuests. Tous droits réservés.
 
-Aucun élément de ce projet ne peut être utilisé sans une autorisation écrite explicite de chacun des trois développeurs originaux, y compris mais sans s'y limiter :
-- Réutilisation des sprites.
-- Utilisation d'une histoire similaire mettant en avant un dieu de la religion mentionnée dans le jeu.
-- Copie du code source ou de parties de celui-ci.
-- Adaptation non autorisée du contenu original.
-- Utilisation non autorisée des noms de jeu ou des noms de personnages.
-- Distribution non autorisée du jeu ou de ses éléments.
-- Plagiat de documents de conception ou de descriptions de jeu.
-- Utilisation non autorisée de captures d'écran ou de médias du jeu.
-- Réutilisation des mécanismes de jeu uniques.
-- Toute autre violation des droits de propriété intellectuelle associés au jeu Shiva's Quests.
-
-
-De plus, nous tenons à souligner que tout usage inapproprié du contexte du jeu, même en modifiant son histoire, peut être offensant pour le groupe d'individus suivant la religion du dieu en question. Par conséquent, toute utilisation du contexte du jeu doit être communiquée strictement avec les développeurs originaux du jeu.
-
-Pour toute demande d'utilisation ou de réutilisation de ce projet, veuillez contacter [DAMODARANE Jean-Baptiste](https://github.com/JeanBaptiste02), [ELUMALAI Sriguru](https://github.com/Sriguru95) et [ZHANG Victor](https://github.com/Seed4616) pour obtenir leur consentement formel.
+Pour toute contribution ou réutilisation de ce projet, veuillez contacter [DAMODARANE Jean-Baptiste](https://github.com/JeanBaptiste02), [ELUMALAI Sriguru](https://github.com/Sriguru95) et [ZHANG Victor](https://github.com/Seed4616) pour obtenir leur consentement formel.
