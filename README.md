@@ -13,7 +13,7 @@ Shiva's Quests est un jeu d'aventure où les joueurs incarnent un avatar de Shiv
 
 - Combat et Énigmes : Affrontez des ennemis redoutables et résolvez des énigmes pour avancer dans le jeu.
 
-- Graphismes Époustouflants : Profitez de sprites et de graphismes de qualité pour une expérience visuelle immersive.
+- Graphismes : Profitez de sprites et de graphismes de qualité pour une expérience visuelle immersive.
 
 # Installation
 Pour jouer à Shiva's Quests, suivez ces étapes simples :
