@@ -1,4 +1,3 @@
-
 # Shiva's Quests
 Ce jeu d'aventure met en scène un avatar fictif du Dieu Shiva, qui se bat contre les forces du mal pour sauver la terre. 
 Développé par DAMODARANE Jean-Baptiste, ELUMALAI Sriguru et ZHANG Victor, étudiants en Licence 2 Informatique, ce projet promet une expérience immersive et palpitante.
@@ -41,6 +40,4 @@ Ce dépôt GitHub contient les éléments suivants :
 ## Licence
 Ce projet est sous Licence GNU Affero General . Consultez le fichier LICENSE pour plus de détails.
 
-## © Copyright L'équipe Shiva'sQuests. Tous droits réservés.
-
-Pour toute contribution ou réutilisation de ce projet, veuillez contacter [DAMODARANE Jean-Baptiste](https://github.com/JeanBaptiste02), [ELUMALAI Sriguru](https://github.com/Sriguru95) et [ZHANG Victor](https://github.com/Seed4616) pour obtenir leur consentement formel.
+Pour toute contribution ou réutilisation de ce projet, veuillez mentionner les noms des développeurs de ce projet : [DAMODARANE Jean-Baptiste](https://github.com/JeanBaptiste02), [ELUMALAI Sriguru](https://github.com/Sriguru95) et [ZHANG Victor](https://github.com/Seed4616). Pour collaborer, veuillez les contacter pour obtenir leur consentement formel.
