@@ -7,7 +7,7 @@ Développé par DAMODARANE Jean-Baptiste, ELUMALAI Sriguru et ZHANG Victor, étu
 Shiva's Quests est un jeu d'aventure où les joueurs incarnent un avatar de Shiva. Le joueur doit naviguer à travers différents niveaux, affrontant des ennemis et résolvant des énigmes pour progresser dans sa quête ultime : sauver la terre du mal qui la menace.
 
 ## Fonctionnalités Principales
-- Avatar de Shiva : Incarnez le puissant dieu hindou et utilisez ses pouvoirs mythiques pour combattre les forces du mal.
+- Avatar de Shiva : Incarnez la puissance de Dieu et utilisez des pouvoirs mythiques pour combattre les forces du mal.
 
 - Niveaux Variés : Explorez une variété de niveaux, chacun avec ses propres défis et obstacles à surmonter.
 
